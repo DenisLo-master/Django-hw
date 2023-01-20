@@ -22,6 +22,11 @@ class NewsPageView(TemplateView):
 class CoursesPageView(TemplateView):
     template_name = "mainapp/courses_list.html"
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["range"] = range(5)
+        return context
+
 
 class ContactsPageView(TemplateView):
     template_name = "mainapp/contacts.html"
